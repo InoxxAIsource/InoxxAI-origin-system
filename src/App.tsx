@@ -59,6 +59,10 @@ function App() {
                     minimap: { enabled: false },
                     fontSize: 14,
                   }}
+                  loading={<div className="h-full flex items-center justify-center">Loading editor...</div>}
+                  beforeMount={(monaco) => {
+                    monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true);
+                  }}
                 />
               ) : (
                 <div className="h-full flex items-center justify-center text-gray-500">
